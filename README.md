@@ -1,2 +1,4 @@
 # LINKEDOPT
-LINKEDOPT algorithm
+LinkedOpt multimodal optimization algorithm.
+
+Source will be uploaded soon...

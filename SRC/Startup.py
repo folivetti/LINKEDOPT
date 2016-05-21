@@ -161,10 +161,10 @@ def SciOpt(X,Y):
         nevals += xstar.nfev
     return Xopt,Yopt, nevals
 
-def Start( idx ):
+def Start( idx, mute=False ):
     
     params = {}
-    with open("parameters") as f:
+    with open("parameters2") as f:
         for i, line in enumerate(f):
             max_it, npop, step, thr, thrL = map(float,line.rstrip().split())
             params[i] = (int(max_it), int(npop), step, thr, thrL)
@@ -181,7 +181,8 @@ def Start( idx ):
     f = niching_func[nf]
     f()
 
-    print f.lb[0], f.ub[0], nopt, max_fes[idx], dim
+    if not mute:
+        print 'range: [{},{}], nopts: {}, maxFES: {}, dim: F{} - {}D'.format(f.lb[0], f.ub[0], nopt, max_fes[idx], nf, dim)
 
     # results
     cgopt1 = lambda x: count_goptima(x,idx,1e-1)[0]

@@ -1,0 +1,1 @@
+g++ testeVec.cpp -o testeVec -O3 -flto -march=native -std=c++0x
